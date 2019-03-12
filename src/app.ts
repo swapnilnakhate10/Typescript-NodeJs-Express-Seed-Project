@@ -1,4 +1,5 @@
 import * as express from "express";
+import {BaseRoutes} from "./routes";
 
 /**
  * Import Controllers (route handlers).
@@ -15,9 +16,7 @@ app.set("port", process.env.PORT || 8080);
  * Start Express server.
  */
 
-app.get( "/", ( req, res ) => {
-    res.send( "Hello world!" );
-} );
+app.use("/", new BaseRoutes().routes);
 
 app.listen(app.get("port"), () => {
     console.log("server started at http://localhost:" + app.get("port"));

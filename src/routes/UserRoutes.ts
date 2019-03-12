@@ -1,9 +1,17 @@
 import express = require("express");
-var router = express.Router();
+import UserController = require("../controllers/UserController");
+const router = express.Router();
 
 class UserRoutes {
-    get routes() : express.Router {
-        router.get('/all');
+
+    private userController: UserController;
+
+    constructor() {
+        this.userController = new UserController();
+    }
+
+    get routes(): express.Router {
+        router.get("/all", this.userController.getUserData);
         return router;
     }
 }
