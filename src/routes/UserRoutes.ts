@@ -11,7 +11,8 @@ class UserRoutes {
     }
 
     get routes(): express.Router {
-        router.get("/all", this.userController.getUserData);
+        console.log("Gteting user Routes");
+        router.get("/get", this.userController.createUser);
         return router;
     }
 }

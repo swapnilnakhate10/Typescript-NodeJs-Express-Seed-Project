@@ -3,9 +3,11 @@ import UserRoutes = require("./UserRoutes");
 
 const app = express();
 
-export class BaseRoutes {
+class BaseRoutes {
     get routes() {
-        app.use("/user", new UserRoutes().routes);
+        console.log("Routes Init");
+        app.use("/api/user/", new UserRoutes().routes);
         return app;
     }
 }
+export = BaseRoutes;
