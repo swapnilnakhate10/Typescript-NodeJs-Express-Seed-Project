@@ -20,6 +20,16 @@ class UserService {
         });
     }
 
+    public getUserById(userId: any, callback: (error: any, response: any) => void) {
+        this.userRepository.retrieveById(userId, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
+
     public getAllUserData(callback: (error: any, response: any) => void) {
         this.userRepository.retrieve({}, (error, result) => {
             if (error) {

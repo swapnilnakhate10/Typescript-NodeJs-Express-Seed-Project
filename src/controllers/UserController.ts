@@ -23,6 +23,22 @@ class UserController {
         }
     }
 
+    public getUserById(req: express.Request, res: express.Response, next: express.NextFunction): void {
+        try {
+            const userService = new UserService();
+            const userId = req.params.id;
+            userService.getUserById(userId, (error , result) => {
+                if (error) {
+                    res.send(error);
+                } else {
+                    res.send(result);
+                }
+            });
+        } catch (e) {
+            console.log("Exception in getting all User Data . ", e);
+        }
+    }
+
     public getAllUsers(req: express.Request, res: express.Response, next: express.NextFunction): void {
         try {
             const userService = new UserService();

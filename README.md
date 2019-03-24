@@ -41,6 +41,14 @@ GET : http://localhost:8080/api/users/
 ```
 
 
+#### Get User By Id
+
+
+```bash
+GET : http://localhost:8080/api/users/{userId}
+```
+
+
 #### Update an existing User
 
 ```bash

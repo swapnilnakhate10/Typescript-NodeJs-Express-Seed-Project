@@ -13,6 +13,7 @@ class UserRoutes {
     get routes(): express.Router {
         router.post("/", this.userController.createUser);
         router.get("/", this.userController.getAllUsers);
+        router.get("/:id", this.userController.getUserById);
         router.put("/:id", this.userController.updateUser);
         router.delete("/:id", this.userController.deleteUserById);
         return router;
