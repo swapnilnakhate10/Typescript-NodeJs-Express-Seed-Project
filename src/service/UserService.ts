@@ -29,6 +29,17 @@ class UserService {
             }
         });
     }
+
+    public updateUserData(userId: any, updatedUser: User, callback: (error: any, response: any) => void) {
+        const updateQuery = { _id : userId };
+        this.userRepository.update(updateQuery, updatedUser, {new: true}, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
 }
 
 Object.seal(UserService);

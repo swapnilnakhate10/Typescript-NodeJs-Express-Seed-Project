@@ -34,7 +34,24 @@ class UserController {
                 }
             });
         } catch (e) {
-            console.log("Exception in creating User Data . ", e);
+            console.log("Exception in getting all User Data . ", e);
+        }
+    }
+
+    public updateUser(req: express.Request, res: express.Response, next: express.NextFunction): void {
+        try {
+            const userId = req.params.id;
+            const updateBody = req.body;
+            const userService = new UserService();
+            userService.updateUserData(userId, updateBody, (error , result) => {
+                if (error) {
+                    res.send(error);
+                } else {
+                    res.send(result);
+                }
+            });
+        } catch (e) {
+            console.log("Exception in updating User Data : ", e);
         }
     }
 }
