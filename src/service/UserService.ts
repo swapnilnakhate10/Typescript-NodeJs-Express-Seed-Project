@@ -40,6 +40,17 @@ class UserService {
             }
         });
     }
+
+    public deleteUserById(userId: any, callback: (error: any, response: any) => void) {
+        const updateQuery = { _id : userId };
+        this.userRepository.deleteById(updateQuery, (error, result) => {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, result);
+            }
+        });
+    }
 }
 
 Object.seal(UserService);

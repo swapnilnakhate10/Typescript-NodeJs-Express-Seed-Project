@@ -54,6 +54,22 @@ class UserController {
             console.log("Exception in updating User Data : ", e);
         }
     }
+
+    public deleteUserById(req: express.Request, res: express.Response, next: express.NextFunction): void {
+        try {
+            const userId = req.params.id;
+            const userService = new UserService();
+            userService.deleteUserById(userId, (error , result) => {
+                if (error) {
+                    res.send(error);
+                } else {
+                    res.send(result);
+                }
+            });
+        } catch (e) {
+            console.log("Exception in deleting User by Id : ", e);
+        }
+    }
 }
 
 export = UserController;

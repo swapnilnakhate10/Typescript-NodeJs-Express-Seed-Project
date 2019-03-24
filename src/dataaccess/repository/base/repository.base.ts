@@ -41,6 +41,16 @@ class RepositoryBase<T extends mongoose.Document> implements IRead<T>, IWrite<T>
     });
   }
 
+  public deleteById(query: any, callback: (error: any, result: any) => void) {
+    this.schemaModel.findByIdAndDelete(query, (error: Error, result: T) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        callback(null, result);
+      }
+    });
+  }
+
 }
 
 export = RepositoryBase;
