@@ -86,6 +86,23 @@ class UserController {
             console.log("Exception in deleting User by Id : ", e);
         }
     }
+
+    public loginUser(req: express.Request, res: express.Response, next: express.NextFunction): void {
+        try {
+            const userCredentials = req.body;
+            const userService = new UserService();
+            userService.loginUser(userCredentials, (error , result) => {
+                if (error) {
+                    res.status(401).send(error);
+                } else {
+                    res.status(200).send(result);
+                }
+            });
+        } catch (e) {
+            console.log("Exception in creating User Data : ", e);
+        }
+    }
+
 }
 
 export = UserController;
