@@ -18,6 +18,9 @@ class UserSchema {
                 lastName: {
                     type: String
                 },
+                password: {
+                    type: String
+                },
             },
             {
                 timestamps: true,
