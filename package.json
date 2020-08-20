@@ -16,7 +16,7 @@
     "@types/compression": "0.0.36",
     "@types/cors": "^2.8.4",
     "@types/method-override": "0.0.31",
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
